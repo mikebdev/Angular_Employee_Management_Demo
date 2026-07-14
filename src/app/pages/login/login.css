@@ -1,0 +1,142 @@
+  .login-page {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 1.5rem;
+  }
+
+  /* ---- Card ---- */
+  .login-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    animation: card-pop .6s cubic-bezier(.21, 1.02, .73, 1) both;
+  }
+
+  @keyframes card-pop {
+    from { opacity: 0; transform: translateY(30px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ---- Brand icon ---- */
+  .brand-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: #fff;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  /* ---- Buttons ---- */
+  .btn-login {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    border-radius: .65rem;
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(37, 117, 252, 0.45);
+  }
+  .btn-login:active { transform: translateY(0); }
+
+  .social-btn {
+    border-radius: .65rem;
+    transition: transform .2s ease, background-color .2s ease, color .2s ease;
+  }
+  .social-btn:hover { transform: translateY(-3px); }
+
+  .form-control {
+    border-radius: .65rem;
+  }
+  .form-control:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 0 .2rem rgba(37, 117, 252, 0.2);
+  }
+
+  /* ---- Divider ---- */
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #adb5bd;
+    font-size: .8rem;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e9ecef;
+  }
+  .divider span { padding: 0 .75rem; }
+
+  /* ---- Animated background blobs ---- */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: .5;
+    z-index: 1;
+  }
+  .blob-1 {
+    width: 320px; height: 320px;
+    background: #ff6ec4;
+    top: -80px; left: -60px;
+    animation: drift 12s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 260px; height: 260px;
+    background: #7873f5;
+    bottom: -70px; right: -50px;
+    animation: drift 15s ease-in-out infinite reverse;
+  }
+  .blob-3 {
+    width: 200px; height: 200px;
+    background: #4ade80;
+    bottom: 40%; left: 55%;
+    animation: drift 18s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(40px, -30px) scale(1.1); }
+    66%      { transform: translate(-30px, 20px) scale(.95); }
+  }
+
+  /* ---- Entrance animations ---- */
+  .fade-in-down { animation: fadeInDown .6s ease both; }
+  .fade-in-up   { animation: fadeInUp .6s ease both; }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Staggered field reveal */
+  .field-anim {
+    opacity: 0;
+    animation: fadeInUp .5s ease forwards;
+    animation-delay: var(--d, 0s);
+  }

@@ -1,0 +1,72 @@
+<div class="login-page d-flex align-items-center justify-content-center min-vh-100">
+  <!-- Animated background blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="login-card card border-0 shadow-lg">
+    <div class="card-body p-4 p-md-5">
+      <!-- Brand / Logo -->
+      <div class="text-center mb-4 fade-in-down">
+        <div class="brand-icon mx-auto mb-3">
+          <i class="bi bi-people-fill"></i>
+        </div>
+        <h3 class="fw-bold mb-1">Welcome Back</h3>
+        <p class="text-muted mb-0">Sign in to Employee Management</p>
+      </div>
+
+      <!-- Form -->
+      <form class="fade-in-up">
+        <!-- Email -->
+        <div class="form-floating mb-3 field-anim" style="--d: .05s;">
+          <input type="email" [(ngModel)]="loginObj.email" class="form-control" name="email" id="email" placeholder="name@example.com" autocomplete="username">
+          <label for="email"><i class="bi bi-envelope me-1"></i> Email address</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-floating mb-2 field-anim" style="--d: .15s;">
+          <input type="password" [(ngModel)]="loginObj.password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="current-password">
+          <label for="password"><i class="bi bi-lock me-1"></i> Password</label>
+        </div>
+
+        <!-- Remember / Forgot -->
+        <div class="d-flex justify-content-between align-items-center mb-4 field-anim" style="--d: .25s;">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember">
+            <label class="form-check-label text-muted" for="remember">Remember me</label>
+          </div>
+          <a href="#" class="text-decoration-none small link-primary">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary w-100 py-2 btn-login field-anim" style="--d: .35s;">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+        </button>
+
+        <!-- Divider -->
+        <div class="divider my-4 field-anim" style="--d: .45s;">
+          <span>or continue with</span>
+        </div>
+
+        <!-- Social -->
+        <div class="d-flex gap-2 field-anim" style="--d: .55s;">
+          <button type="button" class="btn btn-outline-secondary w-100 social-btn">
+            <i class="bi bi-google"></i>
+          </button>
+          <button type="button" class="btn btn-outline-secondary w-100 social-btn">
+            <i class="bi bi-github"></i>
+          </button>
+          <button type="button" class="btn btn-outline-secondary w-100 social-btn">
+            <i class="bi bi-microsoft"></i>
+          </button>
+        </div>
+      </form>
+
+      <p class="text-center text-muted mt-4 mb-0 small fade-in-up">
+        Don't have an account?
+        <a href="#" class="text-decoration-none fw-semibold link-primary">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>
+
