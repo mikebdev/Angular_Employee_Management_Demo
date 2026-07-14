@@ -19,14 +19,14 @@
       <form class="fade-in-up">
         <!-- Email -->
         <div class="form-floating mb-3 field-anim" style="--d: .05s;">
-          <input type="email" [(ngModel)]="loginObj.email" class="form-control" name="email" id="email" placeholder="name@example.com" autocomplete="username">
-          <label for="email"><i class="bi bi-envelope me-1"></i> Email address</label>
+          <input type="email" [(ngModel)]="loginObj.Email" class="form-control" name="Email" id="Email" placeholder="name@example.com" autocomplete="username">
+          <label for="Email"><i class="bi bi-envelope me-1"></i> Email address</label>
         </div>
 
         <!-- Password -->
         <div class="form-floating mb-2 field-anim" style="--d: .15s;">
-          <input type="password" [(ngModel)]="loginObj.password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="current-password">
-          <label for="password"><i class="bi bi-lock me-1"></i> Password</label>
+          <input type="password" [(ngModel)]="loginObj.Password" class="form-control" name="Password" id="Password" placeholder="Password" autocomplete="current-password">
+          <label for="Password"><i class="bi bi-lock me-1"></i> Password</label>
         </div>
 
         <!-- Remember / Forgot -->
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="btn btn-primary w-100 py-2 btn-login field-anim" style="--d: .35s;">
+        <button type="button" (click)="onLogin()" class="btn btn-primary w-100 py-2 btn-login field-anim" style="--d: .35s;">
           <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
         </button>
 
@@ -66,6 +66,7 @@
         Don't have an account?
         <a href="#" class="text-decoration-none fw-semibold link-primary">Sign up</a>
       </p>
+      <p>{{ loginURL }}</p>
     </div>
   </div>
 </div>
