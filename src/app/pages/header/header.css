@@ -1,0 +1,55 @@
+#wrapper {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+#sidebar-wrapper {
+  min-height: 100vh;
+  width: 250px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#sidebar-wrapper .sidebar-heading {
+  white-space: nowrap;
+}
+
+#sidebar-wrapper .list-group-item {
+  transition: background-color 0.2s ease;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+#sidebar-wrapper .list-group-item.active {
+  background-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+/* Transition Area for Content Wrapper */
+#page-content-wrapper {
+  min-width: 0;
+}
+
+/* Collapsed State Architecture */
+#wrapper.collapsed #sidebar-wrapper {
+  width: 70px;
+}
+
+#wrapper.collapsed #sidebar-wrapper .nav-text {
+  display: none;
+}
+
+#wrapper.collapsed #sidebar-wrapper .sidebar-heading span {
+  display: none;
+}
+
+#wrapper.collapsed #sidebar-wrapper .list-group-item {
+  text-align: center;
+  padding: 1.25rem 0 !important;
+}
+
+#wrapper.collapsed #sidebar-wrapper .list-group-item i {
+  margin-right: 0 !important;
+}
