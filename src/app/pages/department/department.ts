@@ -29,6 +29,12 @@ export class Department implements OnInit {
   }
 
 
+
+  /// <summary>
+  /// Get All Department
+  /// TEST URL: hostAddress/api/DepartmentMaster/etAllDepartments
+  /// </summary>
+  /// <returns></returns>
   getAllDepartments() {
     this.masterService.getAllDepartments().subscribe({
       next: (result: any) => {
@@ -45,7 +51,12 @@ export class Department implements OnInit {
   }
 
 
-
+  /// <summary>
+  /// Add Department
+  /// TEST URL: hostAddress/api/DepartmentMaster/AddDepartment
+  /// </summary>
+  /// <param name="department"></param>
+  /// <returns></returns>
   onSaveDepartment() {
     this.masterService.saveDepartment(this.newDeptObj).subscribe({
       next: (result: any) => {
@@ -66,6 +77,15 @@ export class Department implements OnInit {
   }
 
 
+  /// <summary>
+  // Why the stringify/parse dance: a deep-copy trick.
+  // JSON.stringify then JSON.parse produces a brand-new object with no references back to the original
+  // department in departmentList.
+  // Without this, doing this.newDeptObj = department would make the form edit the same object that's displayed
+  // in the table — so typing in the form would mutate the list row live, even before the user saves.
+  /// </summary>
+  /// <param name="department"></param>
+  /// <returns>newDeptObj</returns>
   onEditDepartment(department: DepartmentModel) {
     const strData = JSON.stringify(department);
     const parsedData = JSON.parse(strData);
@@ -77,7 +97,12 @@ export class Department implements OnInit {
     // console.log('Editing department:', this.newDeptObj);
   }
 
-
+  /// <summary>
+  /// Update Department
+  /// TEST URL: hostAddress/api/DepartmentMaster/UpdateDepartment
+  /// </summary>
+  /// <param="department"></param>
+  /// <returns></returns>
   onUpdateDepartment() {
     this.masterService.updateDepartment(this.newDeptObj).subscribe({
       next: (result: any) => {
@@ -105,9 +130,21 @@ export class Department implements OnInit {
   }
 
 
-
+  /// <summary>
+  /// Delete Department by ID
+  /// TEST URL: hostAddress/api/DepartmentMaster/id 
+  /// </summary>
+  /// <param name="id"></param>
+  /// <returns></returns>
   onDeleteDepartment(departmentId: number) {
-    // Implement the logic to delete the department based on the provided departmentId
+    // Confirm deletion with the user before proceeding; might pass in the department name for a more user-friendly message
+    const confirmation = confirm('Are you sure you want to delete this department? ' + departmentId);
+
+    if (!confirmation) {
+      console.log('Deletion canceled by user.');
+      return; // Exit the function if the user cancels the deletion
+    }
+
     console.log('Deleting department with ID:', departmentId);
     this.masterService.deleteDepartment(departmentId).subscribe({
       next: (result: any) => {
