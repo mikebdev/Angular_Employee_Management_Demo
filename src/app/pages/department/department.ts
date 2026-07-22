@@ -45,7 +45,7 @@ export class Department implements OnInit {
       error: (error: any) => {
         console.error('Error fetching departments:', error);
         // Handle the error, e.g., show an error message to the user
-        alert('Error fetching departments: ' + error.message);
+        //alert('Error fetching departments: ' + error.message);
       }
     });
   }
@@ -62,7 +62,7 @@ export class Department implements OnInit {
       next: (result: any) => {
         console.log('Department saved successfully:', result);
         // Handle the result as needed, e.g., update a list of departments in the UI
-        alert('Department saved successfully:' + result.message);
+        //alert('Department saved successfully:' + result.message);
         this.getAllDepartments(); // Refresh the department list after saving
         this.newDeptObj = new DepartmentModel(); // Reset the form fields after saving
       },
@@ -108,7 +108,7 @@ export class Department implements OnInit {
       next: (result: any) => {
         console.log('Department updated successfully:', result);
         // Handle the result as needed, e.g., update a list of departments in the UI
-        alert('Department updated successfully:' + result.message);
+        //alert('Department updated successfully:' + result.message);
         this.getAllDepartments(); // Refresh the department list after updating
         this.newDeptObj = new DepartmentModel(); // Reset the form fields after updating
       },
